@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 import Home from '../Home/Home';
 import Edit from '../Edit/Edit';
 import helper from '../helper';
+import './CalendarApp.scss';
 
 class CalendarApp extends React.Component {
     constructor(props) {
@@ -12,8 +13,8 @@ class CalendarApp extends React.Component {
         this.state = {
           mood: '',
           message: '',
-          newDate: '',
-          dateList: this.getSavedState()
+          newDate: new Date (),
+          dateList: this.getSavedState(),
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -54,10 +55,22 @@ class CalendarApp extends React.Component {
       reset() {
         this.setState ({
             mood: '',
-            newDate: '',
-            message: ''
+            newDate: new Date(),
+            message: '',
+            isDuplicated: ''
         })
     }
+
+    isNewDateInListDate(list, newDate) {
+        for(const info of list) {
+            if (helper.getFormatedDate(info.newDate) === helper.getFormatedDate(newDate)) {
+                return true;
+            }
+        }
+        return false;
+    }
+   
+
     saveData () {
         const userInfo = {
             newDate: this.state.newDate,
@@ -65,15 +78,21 @@ class CalendarApp extends React.Component {
             message: this.state.message
         };
 
-        const newDateList = [...this.state.dateList, userInfo];
+        if (this.isNewDateInListDate(this.state.dateList, userInfo.newDate)) {
+         alert('An entry for this date already exists, please choose a different date');
 
-        this.setState ({
-            dateList : newDateList
-        })    
-        
-        localStorage.setItem('savedInfo', JSON.stringify(newDateList));
-        
-        this.reset();
+        } else {
+            const newDateList = [...this.state.dateList, userInfo];
+
+            this.setState ({
+                dateList : newDateList
+            });    
+            
+            localStorage.setItem('savedInfo', JSON.stringify(newDateList));
+            
+            this.reset();
+        }
+
     }
 
     render() {

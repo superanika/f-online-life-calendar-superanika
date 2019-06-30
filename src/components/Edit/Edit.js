@@ -2,18 +2,19 @@ import React from 'react';
 import DatePicker from "react-datepicker";
 import {Link} from 'react-router-dom';
 import "react-datepicker/dist/react-datepicker.css";
+import './Edit.scss';
 
 class Edit extends React.Component {
  
     render() {
-        const {handleChange, handleChecked, mood, handleInputMessage, message, reset, saveData} = this.props;
+        const {handleChange, handleChecked, mood, handleInputMessage, message, reset, saveData, newDate} = this.props;
       
         return (
            <div className="edit__wrapper">
                <h2>Date</h2>
                <DatePicker
-               selected={new Date()}
-               onChange={handleChange}                
+                    selected={newDate}
+                    onChange={handleChange}                
                />
                <h2>Mood</h2>
                <div>
@@ -48,8 +49,8 @@ class Edit extends React.Component {
                     :
                     ''
                 }
-                <Link to="/">
-                    <button className="save" onClick= {saveData}>Save</button>
+                <Link to="/" onClick= {saveData}>
+                    <button className="save">Save</button>
                 </Link>
                 <Link to="/">
                     <button className="cancel" onClick={reset}> Cancel</button>    
