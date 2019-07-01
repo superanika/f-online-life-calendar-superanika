@@ -25,7 +25,7 @@ class Home extends React.Component {
                         :
                         dateList.map((item, index) =>
                           item.mood === "happy" ?
-                            <div className="happy__face face__container"  key={index} >
+                            <div className="face__container"  key={index} >
                                 <span className="face" role="img" aria-label="happy face">😁</span>
                                 <div className={isChecked ? "info__container hide" : "info__container"}>
                                     <p className="date">{helper.getFormatedDate(item.newDate)}</p>
@@ -33,7 +33,7 @@ class Home extends React.Component {
                                 </div>
                             </div>
                             :
-                            <div className="sad__face face__container" key={index} onClick={this.handleShow}>
+                            <div className="face__container" key={index} onClick={this.handleShow}>
                                 <span  className="face" role="img" aria-label="sad face">😡</span>
                                 <div className={isChecked ? "info__container hide" : "info__container"}>
                                     <p className="date">{helper.getFormatedDate(item.newDate)}</p>
