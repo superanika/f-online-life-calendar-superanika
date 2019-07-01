@@ -4,10 +4,14 @@ import helper from '../helper';
 import './Home.scss'
 
 class Home extends React.Component {
+
+   
     render() {
         const {dateList} = this.props;
+        
 
         return (
+            
             <div className="home__wrapper">
                 <Link to= "/edit">
                     <button className="add__buttom">+</button>
@@ -39,6 +43,7 @@ class Home extends React.Component {
             </div>
         );
     }
+   
 }
 
 export default Home;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../Header/Header';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, withRouter} from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Home from '../Home/Home';
 import Edit from '../Edit/Edit';
@@ -15,6 +15,7 @@ class CalendarApp extends React.Component {
           message: '',
           newDate: new Date (),
           dateList: this.getSavedState(),
+          isDuplicated: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -36,10 +37,10 @@ class CalendarApp extends React.Component {
 
       handleChange(date) {
         this.setState({
-          newDate: date
+          newDate: date,
+          isDuplicated: false
         });
       }
-
       handleChecked(event) {
           const radioChecked = event.currentTarget.value;
           this.setState ({
@@ -57,10 +58,9 @@ class CalendarApp extends React.Component {
             mood: '',
             newDate: new Date(),
             message: '',
-            isDuplicated: ''
+            isDuplicated: false
         })
     }
-
     isNewDateInListDate(list, newDate) {
         for(const info of list) {
             if (helper.getFormatedDate(info.newDate) === helper.getFormatedDate(newDate)) {
@@ -69,7 +69,6 @@ class CalendarApp extends React.Component {
         }
         return false;
     }
-   
 
     saveData () {
         const userInfo = {
@@ -79,24 +78,24 @@ class CalendarApp extends React.Component {
         };
 
         if (this.isNewDateInListDate(this.state.dateList, userInfo.newDate)) {
-         alert('An entry for this date already exists, please choose a different date');
-
+            this.setState ({isDuplicated: true})
         } else {
             const newDateList = [...this.state.dateList, userInfo];
 
             this.setState ({
-                dateList : newDateList
+                dateList : newDateList,
             });    
             
             localStorage.setItem('savedInfo', JSON.stringify(newDateList));
             
             this.reset();
-        }
 
+            this.props.history.push('/');
+        }
     }
 
     render() {
-        const {mood, message, newDate, dateList} = this.state;
+        const {mood, message, newDate, dateList, isDuplicated} = this.state;
 
         return (
             <React.Fragment>
@@ -120,6 +119,7 @@ class CalendarApp extends React.Component {
                                   newDate= {newDate}
                                   reset= {this.reset}
                                   saveData= {this.saveData}
+                                  isDuplicated= {isDuplicated}
                                   />
                         }></Route>
                     </Switch>
@@ -133,4 +133,4 @@ class CalendarApp extends React.Component {
     }
 }
 
-export default CalendarApp;
+export default withRouter(CalendarApp);
