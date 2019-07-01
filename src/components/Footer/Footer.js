@@ -1,12 +1,14 @@
 import React from 'react';
+import './Footer.scss';
 
 class Footer extends React.Component {
+    
     render () {
+        const url= "https://www.linkedin.com/in/ana-mar%C3%ADa-romero-garcia/";
+
         return (
             <p className="footer__copy">
-                  © 
-                  <a href="https://www.linkedin.com/in/ana-mar%C3%ADa-romero-garcia/" target="blank">SuperAnika</a> 
-                  2019
+                  ©  <a href={url} target="blank" className="linkedin">SuperAnika</a>  2019
             </p>
         );
     }
