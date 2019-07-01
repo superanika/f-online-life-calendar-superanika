@@ -17,6 +17,7 @@ class CalendarApp extends React.Component {
           newDate: new Date (),
           dateList: this.getSavedState(),
           isDuplicated: false,
+          isChecked: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -24,6 +25,7 @@ class CalendarApp extends React.Component {
         this.handleInputMessage= this.handleInputMessage.bind(this);
         this.reset= this.reset.bind(this);
         this.saveData= this.saveData.bind(this);
+        this.hideInfo= this.hideInfo.bind(this);
       }
 
       getSavedState() {
@@ -34,6 +36,14 @@ class CalendarApp extends React.Component {
               savedState = JSON.parse(savedState, helper.reviver);
           }
           return savedState;
+      }
+
+      hideInfo (event) {
+            const target = event.currentTarget;
+            const isChecked = target.checked;
+            this.setState({
+                isChecked: isChecked
+            })
       }
 
       handleChange(date) {
@@ -96,7 +106,7 @@ class CalendarApp extends React.Component {
     }
 
     render() {
-        const {mood, message, newDate, dateList, isDuplicated} = this.state;
+        const {mood, message, newDate, dateList, isDuplicated, isChecked} = this.state;
 
         return (
             <React.Fragment>
@@ -108,6 +118,8 @@ class CalendarApp extends React.Component {
                         <Route exact path="/" render= {
                             () => <Home 
                                 dateList = {dateList}
+                                isChecked = {isChecked}
+                                hideInfo = {this.hideInfo}
                             />
                         }></Route>
                         <Route path ="/edit" render={
