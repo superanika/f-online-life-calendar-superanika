@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Life calendar by SuperAnika 
 
-## Available Scripts
+Do you think you had a bad year? Now you can check that it was not so bad!  With the life calendar, you can add each day to our list and save if it was good or not, so at the end of the year you will see how many bad days you really had.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Screenshot](screenshot3.png) 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+This SPA has two components, the list of icons and the edit view. You can access the edit view clicking on the + button.  On the editor, you will choose the date you want to add to the list, if it was a good or a bad day, and you can leave a message just in case it was a good day, bad things is better to forget them!  You can't save the same date twice, a error message will alert you in that case.  The cancel button will take you to the home page again.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+![Screenshot](screenshot2.png)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Back to the home page, we have the Add button, as we saw before, the list of emojis with the information provided and a checkbox where you can hide the inforation and show only the emojis.  You can find also how many good days or bad days you already added.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+![Screenshot](screenshot1.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This site has a responsive design so it can fit all devices' sizes.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You can clone this project clicking on the green clone button or with this link:
 
-## Learn More
+https://github.com/Adalab/f-online-life-calendar-superanika.git
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and Sass and you should run "npm install" and "npm start" on your Terminal to init it.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The structure is as follows:
+```
+/
+`- src
+   |- components
+   |    |- CalendarApp
+   |    |  |- CalendarApp.js
+   |    |  |- CalendarApp.scss
+   |    |- Edit
+   |    |  |- Edit.js
+   |    |  |- Edit.scss
+   |    |- Footer
+   |    |  |- Footer.js
+   |    |  |- Footer.scss
+   |    |- Header
+   |    |  |- Header.js
+   |    |  |- Header.scss
+   |    |- Home
+   |    |  |- Home.js
+   |    |  |- Home.scss
+   |    |-Helper.js
+   |- images
+   |- App.js
+   |- App.scss
+   |- index.js
+   |- index.css
+ ```  
+ 
