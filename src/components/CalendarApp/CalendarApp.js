@@ -7,6 +7,7 @@ import Edit from '../Edit/Edit';
 import helper from '../helper';
 import './CalendarApp.scss';
 
+
 class CalendarApp extends React.Component {
     constructor(props) {
         super(props);
@@ -15,7 +16,7 @@ class CalendarApp extends React.Component {
           message: '',
           newDate: new Date (),
           dateList: this.getSavedState(),
-          isDuplicated: false
+          isDuplicated: false,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -58,7 +59,7 @@ class CalendarApp extends React.Component {
             mood: '',
             newDate: new Date(),
             message: '',
-            isDuplicated: false
+            isDuplicated: false,
         })
     }
     isNewDateInListDate(list, newDate) {
