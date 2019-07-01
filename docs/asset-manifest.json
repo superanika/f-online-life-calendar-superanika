@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "./static/css/main.4ca049e0.chunk.css",
+    "main.js": "./static/js/main.a4578476.chunk.js",
+    "main.js.map": "./static/js/main.a4578476.chunk.js.map",
+    "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
+    "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
+    "static/css/2.c7bb94bc.chunk.css": "./static/css/2.c7bb94bc.chunk.css",
+    "static/js/2.1605abae.chunk.js": "./static/js/2.1605abae.chunk.js",
+    "static/js/2.1605abae.chunk.js.map": "./static/js/2.1605abae.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.f8dea2c82a6eabe140b0cef3b09ef796.js": "./precache-manifest.f8dea2c82a6eabe140b0cef3b09ef796.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.c7bb94bc.chunk.css.map": "./static/css/2.c7bb94bc.chunk.css.map",
+    "static/css/main.4ca049e0.chunk.css.map": "./static/css/main.4ca049e0.chunk.css.map",
+    "static/media/App.scss": "./static/media/184974_smiley-wallpaper-hd.4578dd21.jpg"
+  }
+}
